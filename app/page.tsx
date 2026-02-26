@@ -120,24 +120,46 @@ const blogPosts = [
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="bg-primary relative overflow-hidden">
-        {/* Décorations */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-white translate-x-1/3 -translate-y-1/3" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-white -translate-x-1/2 translate-y-1/2" />
-        </div>
+      {/* HERO VIDÉO */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gray-text">
+        {/* Vidéo de fond */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E"
+        >
+          {/* Vidéo principale : soudure en usine industrielle */}
+          <source
+            src="https://assets.mixkit.co/videos/47755/47755-720.mp4"
+            type="video/mp4"
+          />
+          {/* Fallback : machines industrielles */}
+          <source
+            src="https://assets.mixkit.co/videos/17675/17675-720.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        {/* Overlay dégradé sombre pour lisibilité du texte */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" />
+
+        {/* Overlay couleur primaire subtil */}
+        <div className="absolute inset-0 bg-primary/20" />
+
+        {/* Contenu */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full text-accent bg-white/15 mb-6">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full text-accent bg-white/15 backdrop-blur-sm mb-6 animate-slide-up">
               Ingénierie industrielle · Côte d'Ivoire
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate-slide-up">
               Sécurisons et optimisons votre{" "}
               <span className="text-accent">performance industrielle</span>
             </h1>
-            <p className="text-white/80 text-lg md:text-xl mb-10 animate-slide-up-d1">
+            <p className="text-white/85 text-lg md:text-xl mb-10 animate-slide-up-d1 max-w-2xl">
               Plus qu'un prestataire, Meysson Engineering est votre partenaire
               stratégique. Nos experts cumulent plus de{" "}
               <strong className="text-white">100 ans d'expérience</strong> en
@@ -146,19 +168,25 @@ export default function Home() {
             <div className="flex flex-wrap gap-4 animate-slide-up-d2">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 bg-white text-primary hover:bg-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-white text-primary hover:bg-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg"
               >
                 Nos services
                 <ArrowRight size={18} />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+                className="inline-flex items-center gap-2 border-2 border-white/50 hover:border-white hover:bg-white/10 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 backdrop-blur-sm"
               >
                 Nous contacter
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Indicateur scroll */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+          <div className="w-0.5 h-8 bg-white/30 rounded-full" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/50" />
         </div>
       </section>
 
