@@ -51,7 +51,7 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 				return (
 					<div
 						key={item.href}
-						className="expertise-row relative w-full min-h-screen flex overflow-hidden"
+						className="expertise-row group/row relative w-full min-h-screen flex overflow-hidden"
 					>
 						{/* ── Image panel — full bleed on all screens ── */}
 						<div className="expertise-panel-image absolute inset-0">
@@ -59,7 +59,7 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 								src={item.image}
 								alt={item.title}
 								fill
-								className="object-cover"
+								className="object-cover transition-transform duration-700 group-hover/row:scale-105"
 								sizes="(max-width: 768px) 100vw, 55vw"
 							/>
 							{/* Mobile: gradient from bottom for text readability */}
@@ -102,7 +102,7 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 								</h2>
 
 								{/* Accent line */}
-								<div className="expertise-slide-item w-16 h-1 bg-accent rounded-full mb-6" />
+								<div className="expertise-slide-item w-16 h-1 bg-accent rounded-full mb-6 transition-all duration-500 group-hover/row:w-28" />
 
 								{/* Description */}
 								<p className="expertise-slide-item text-white/70 text-base md:text-lg leading-relaxed mb-8">

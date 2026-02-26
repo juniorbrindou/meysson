@@ -104,6 +104,11 @@ html {
   transform: translateX(0);
 }
 
+/* Hover: léger zoom supplémentaire sur l'image */
+.expertise-row[data-visible="true"]:hover .expertise-panel-image {
+  transform: scale(1.04);
+}
+
 /* Content items: slide up with stagger */
 .expertise-slide-item {
   opacity: 0;
