@@ -83,6 +83,32 @@ html {
   transform: scale(1);
 }
 
+/* Shine sweep — déclenché uniquement au hover de l'image */
+@keyframes imgShineSweep {
+  from { transform: translateX(-120%); }
+  to   { transform: translateX(220%); }
+}
+
+.img-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%) skewX(-20deg);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.expertise-panel-image:hover .img-shine::after {
+  animation: imgShineSweep 0.45s ease-out forwards;
+}
+
 /* Content panel: slide in from left or right */
 .expertise-panel-slide-right {
   opacity: 0;
@@ -104,10 +130,6 @@ html {
   transform: translateX(0);
 }
 
-/* Hover: léger zoom supplémentaire sur l'image */
-.expertise-row[data-visible="true"]:hover .expertise-panel-image {
-  transform: scale(1.04);
-}
 
 /* Content items: slide up with stagger */
 .expertise-slide-item {

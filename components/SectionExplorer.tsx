@@ -53,7 +53,7 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 						className={`expertise-row group/row flex flex-col md:flex-row ${isReversed ? "md:flex-row-reverse" : ""} w-full min-h-[520px]`}
 					>
 						{/* ── Image panel — claire, sans overlay ── */}
-						<div className="expertise-panel-image relative w-full md:w-1/2 min-h-[280px] md:min-h-[520px] overflow-hidden">
+						<div className="expertise-panel-image group/img relative w-full md:w-1/2 min-h-[280px] md:min-h-[520px] overflow-hidden cursor-pointer">
 							<Image
 								src={item.image}
 								alt={item.title}
@@ -61,6 +61,12 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 								className="object-cover transition-transform duration-700 group-hover/row:scale-105"
 								sizes="(max-width: 768px) 100vw, 50vw"
 							/>
+							{/* Teinte verte au hover */}
+							<div className="absolute inset-0 z-10 bg-primary/0 group-hover/img:bg-primary/25 transition-all duration-500 mix-blend-multiply" />
+							{/* Vignette au hover */}
+							<div className="absolute inset-0 z-10 opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 bg-[radial-gradient(ellipse_at_center,_transparent_35%,_rgba(0,0,0,0.45)_100%)]" />
+							{/* Shine sweep au hover image */}
+							<div className="img-shine absolute inset-0 z-20 pointer-events-none" />
 						</div>
 
 						{/* ── Content panel — fond blanc ── */}
