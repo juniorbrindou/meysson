@@ -6,8 +6,8 @@ import {
 } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
-import DomainCard from "@/components/DomainCard";
 import HeroVideoSlider from "@/components/HeroVideoSlider";
+import SectionExplorer from "@/components/SectionExplorer";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -19,26 +19,26 @@ export default function Home() {
     { value: "50+", label: t("stats.projects") },
   ];
 
-  const domains = [
+  const expertises = [
     {
-      icon: Zap,
       title: t("domain_energie_title"),
       description: t("domain_energie_desc"),
-      href: "/expertises/ingenierie-energie" as const,
+      href: "/expertises/ingenierie-energie",
+      image: "/banner-energie.jpg",
       tags: [t("domain_energie_tag1"), t("domain_energie_tag2"), t("domain_energie_tag3")],
     },
     {
-      icon: Wrench,
       title: t("domain_raffinerie_title"),
       description: t("domain_raffinerie_desc"),
-      href: "/expertises/raffinerie-maintenance" as const,
+      href: "/expertises/raffinerie-maintenance",
+      image: "/banner-raffinerie.jpg",
       tags: [t("domain_raffinerie_tag1"), t("domain_raffinerie_tag2"), t("domain_raffinerie_tag3")],
     },
     {
-      icon: Wifi,
       title: t("domain_telecoms_title"),
       description: t("domain_telecoms_desc"),
-      href: "/expertises/telecoms-infrastructures" as const,
+      href: "/expertises/telecoms-infrastructures",
+      image: "/banner-telecoms.jpg",
       tags: [t("domain_telecoms_tag1"), t("domain_telecoms_tag2"), t("domain_telecoms_tag3")],
     },
   ];
@@ -50,12 +50,6 @@ export default function Home() {
     { icon: Wrench, title: t("services.maintenance_title"), description: t("services.maintenance_desc"), benefit: t("services.maintenance_benefit") },
     { icon: Zap, title: t("services.electrical_title"), description: t("services.electrical_desc"), benefit: t("services.electrical_benefit") },
     { icon: Shield, title: t("services.cyber_title"), description: t("services.cyber_desc"), benefit: t("services.cyber_benefit") },
-  ];
-
-  const blogPosts = [
-    { category: t("blog_posts.post1_cat"), date: t("blog_posts.post1_date"), title: t("blog_posts.post1_title"), excerpt: t("blog_posts.post1_excerpt") },
-    { category: t("blog_posts.post2_cat"), date: t("blog_posts.post2_date"), title: t("blog_posts.post2_title"), excerpt: t("blog_posts.post2_excerpt") },
-    { category: t("blog_posts.post3_cat"), date: t("blog_posts.post3_date"), title: t("blog_posts.post3_title"), excerpt: t("blog_posts.post3_excerpt") },
   ];
 
   const trustItems = [
@@ -113,15 +107,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DOMAINES */}
-      <section className="py-20 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle label={t("domains_label")} title={t("domains_title")} subtitle={t("domains_subtitle")} center />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {domains.map((domain) => <DomainCard key={domain.title} {...domain} />)}
-          </div>
-        </div>
-      </section>
+      {/* EXPERTISES — Immersive diagonal split panels */}
+      <SectionExplorer items={expertises} />
 
       {/* SERVICES */}
       <section className="py-20 bg-white">
@@ -158,32 +145,6 @@ export default function Home() {
                 {tCommon("discover")} <ArrowRight size={18} />
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* BLOG */}
-      <section className="py-20 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle label={t("blog_label")} title={t("blog_title")} subtitle={t("blog_subtitle")} />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {blogPosts.map((post) => (
-              <Link key={post.title} href="/blog" className="group bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-shadow">
-                <div className="h-40 bg-gradient-to-br from-primary/20 to-accent/10 relative">
-                  <span className="absolute top-3 left-3 bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full">{post.category}</span>
-                </div>
-                <div className="p-5">
-                  <p className="text-xs text-gray-400 mb-2">{post.date}</p>
-                  <h3 className="font-semibold text-gray-text text-sm leading-snug mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
-                  <p className="text-gray-500 text-xs leading-relaxed">{post.excerpt}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link href="/blog" className="inline-flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200">
-              {tCommon("all_news")} <ArrowRight size={18} />
-            </Link>
           </div>
         </div>
       </section>

@@ -41,6 +41,7 @@ html {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -64,4 +65,62 @@ html {
 .animate-slide-up-d3 {
   opacity: 0;
   animation: slideUp 0.6s ease-out 0.45s forwards;
+}
+
+/* ── Section Explorer: scroll-reveal animations ── */
+
+.expertise-row {
+  opacity: 1;
+}
+
+/* Image panel: gentle scale-in */
+.expertise-panel-image {
+  transform: scale(1.05);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expertise-row[data-visible="true"] .expertise-panel-image {
+  transform: scale(1);
+}
+
+/* Content items: slide up with stagger */
+.expertise-slide-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expertise-row[data-visible="true"] .expertise-slide-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for each slide item */
+.expertise-row[data-visible="true"] .expertise-slide-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.expertise-row[data-visible="true"] .expertise-slide-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.expertise-row[data-visible="true"] .expertise-slide-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.expertise-row[data-visible="true"] .expertise-slide-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.expertise-row[data-visible="true"] .expertise-slide-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.expertise-row[data-visible="true"] .expertise-slide-item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+.expertise-row[data-visible="true"] .expertise-slide-item:nth-child(7) {
+  transition-delay: 0.7s;
 }
