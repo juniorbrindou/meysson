@@ -69,7 +69,7 @@ export default function Header() {
             />
           </Link>
 
-          {/* ── Desktop nav ── */}
+          {/* ── Desktop nav + Language ── */}
           <nav className="hidden lg:flex items-center">
             {navItems.map((item) =>
               item.children ? (
@@ -142,12 +142,10 @@ export default function Header() {
                 </Link>
               )
             )}
+            <div className="pl-4 border-l border-gray-200 ml-2">
+              <LanguageSwitcher />
+            </div>
           </nav>
-
-          {/* ── Right side: Language ── */}
-          <div className="hidden lg:flex items-center gap-4">
-            <LanguageSwitcher />
-          </div>
 
           {/* ── Burger mobile ── */}
           <button

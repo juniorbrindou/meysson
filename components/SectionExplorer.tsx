@@ -81,7 +81,7 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 							className={`
                 expertise-panel-content relative z-20 w-full md:w-[45%] min-h-[70vh] md:min-h-screen
                 flex items-end md:items-center
-                ${isReversed ? "md:mr-auto" : "md:ml-auto"}
+                ${isReversed ? "md:mr-auto expertise-panel-slide-left" : "md:ml-auto expertise-panel-slide-right"}
                 md:bg-[#1a1a1a]
               `}
 						>

@@ -73,22 +73,43 @@ html {
   opacity: 1;
 }
 
-/* Image panel: gentle scale-in */
+/* Image panel: gentle Ken Burns scale-in */
 .expertise-panel-image {
-  transform: scale(1.05);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.06);
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .expertise-row[data-visible="true"] .expertise-panel-image {
   transform: scale(1);
 }
 
+/* Content panel: slide in from left or right */
+.expertise-panel-slide-right {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expertise-panel-slide-left {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expertise-row[data-visible="true"] .expertise-panel-slide-right,
+.expertise-row[data-visible="true"] .expertise-panel-slide-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* Content items: slide up with stagger */
 .expertise-slide-item {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .expertise-row[data-visible="true"] .expertise-slide-item {
