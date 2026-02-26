@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Meysson Engineering — Plateforme Digitale
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
+![i18n](https://img.shields.io/badge/i18n-next--intl-FF69B4?style=for-the-badge)
 
-First, run the development server:
+## 📌 Présentation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Ce dépôt contient le code source du site vitrine de **Meysson Engineering**, partenaire stratégique en ingénierie industrielle, maintenance, énergie et télécoms en Côte d'Ivoire. La plateforme est conçue pour présenter l'expertise de l'entreprise, ses services techniques et ses références projets à travers une expérience utilisateur fluide et multilingue.
+
+## 🚀 Technologies utilisées
+
+- **Framework** : [Next.js 15+](https://nextjs.org/) (App Router)
+- **Langage** : [TypeScript](https://www.typescriptlang.org/)
+- **Styling** : [Tailwind CSS 4](https://tailwindcss.com/)
+- **Internationalisation** : [next-intl](https://next-intl-docs.vercel.app/) (FR / EN)
+- **Icônes** : [Lucide React](https://lucide.dev/)
+- **Qualité de code** : ESLint
+
+## 📁 Structure du projet
+
+```text
+├── app/[locale]        # Routes de l'application (Internationalisées)
+├── components/         # Composants React réutilisables (Header, Footer, Cards...)
+├── i18n/               # Configuration de l'internationalisation
+├── messages/           # Fichiers de traduction JSON (fr.json, en.json)
+├── public/             # Assets statiques (images, svgs, logos)
+├── next.config.ts      # Configuration Next.js
+└── tailwind.config.mjs # Configuration Tailwind CSS
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Installation et Démarrage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prérequis
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 20.x ou supérieur
+- npm ou yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clonez le dépôt :
+   ```bash
+   git clone <url-du-depot>
+   cd meysson
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Lancez le serveur de développement :
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+Le site sera accessible sur `http://localhost:3000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌍 Internationalisation (i18n)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Le projet supporte nativement le Français et l'Anglais.
+- Les traductions se trouvent dans le dossier `/messages`.
+- Le routage est géré par `next-intl` via le segment dynamique `[locale]`.
+
+## 📜 Scripts disponibles
+
+| Commande | Description |
+| :--- | :--- |
+| `npm run dev` | Lance le serveur de développement avec rechargement à chaud. |
+| `npm run build` | Compile l'application pour la production. |
+| `npm run start` | Lance l'application compilée en mode production. |
+| `npm run lint` | Analyse le code pour détecter les erreurs de style ou potentielles. |
+
+## 🏗️ Déploiement
+
+Le projet est optimisé pour un déploiement sur **Vercel**. Pour déployer :
+1. Connectez votre dépôt GitHub à Vercel.
+2. Vercel détectera automatiquement les paramètres Next.js.
+3. Cliquez sur "Deploy".
+
+---
+
+Projet développé avec passion pour **Meysson Engineering**.
