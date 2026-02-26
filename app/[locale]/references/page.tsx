@@ -48,7 +48,7 @@ export default function ReferencesPage() {
 
   return (
     <>
-      <PageHero label={t("hero_label")} title={t("hero_title")} subtitle={t("hero_subtitle")} breadcrumbs={[{ label: t("hero_label") }]} />
+      <PageHero label={t("hero_label")} title={t("hero_title")} subtitle={t("hero_subtitle")} breadcrumbs={[{ label: t("hero_label") }]} image="/banner-references.jpg" />
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

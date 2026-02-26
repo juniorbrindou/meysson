@@ -25,6 +25,7 @@ export default function IngenerieEnergiePage() {
         title={t("energie_title")}
         subtitle={t("energie_subtitle")}
         breadcrumbs={[{ label: tNav("expertises"), href: "/expertises" }, { label: t("energie_title") }]}
+        image="/banner-energie.jpg"
       />
 
       <section className="py-20 bg-white">

@@ -25,6 +25,7 @@ export default function TelecomsPage() {
         title={t("telecoms_title")}
         subtitle={t("telecoms_subtitle")}
         breadcrumbs={[{ label: tNav("expertises"), href: "/expertises" }, { label: t("telecoms_title") }]}
+        image="/banner-telecoms.jpg"
       />
 
       <section className="py-20 bg-white">

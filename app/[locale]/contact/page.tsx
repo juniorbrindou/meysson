@@ -48,6 +48,7 @@ export default async function ContactPage() {
         title={t("hero_title")}
         subtitle={t("hero_subtitle")}
         breadcrumbs={[{ label: t("hero_label") }]}
+        image="/banner-contact.jpg"
       />
 
       <section className="py-20 bg-white">

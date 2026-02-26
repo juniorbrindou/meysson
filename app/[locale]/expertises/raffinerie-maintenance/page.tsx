@@ -25,6 +25,7 @@ export default function RaffineriePage() {
         title={t("raffinerie_title")}
         subtitle={t("raffinerie_subtitle")}
         breadcrumbs={[{ label: tNav("expertises"), href: "/expertises" }, { label: t("raffinerie_title") }]}
+        image="/banner-raffinerie.jpg"
       />
 
       <section className="py-20 bg-white">

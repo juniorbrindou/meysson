@@ -39,6 +39,7 @@ export default function ExpertisesPage() {
         title={t("hub_title")}
         subtitle={t("hub_subtitle")}
         breadcrumbs={[{ label: t("hub_label") }]}
+        image="/banner-expertises.jpg"
       />
 
       <section className="py-20 bg-white">

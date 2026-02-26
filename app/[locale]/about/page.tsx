@@ -32,6 +32,7 @@ export default function AboutPage() {
         title={t("hero_title")}
         subtitle={t("hero_subtitle")}
         breadcrumbs={[{ label: t("hero_label") }]}
+        image="/banner-about.jpg"
       />
 
       {/* HISTOIRE */}
