@@ -1,50 +1,53 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import PageHero from "@/components/PageHero";
 
-const services = [
-  "Audit énergétique",
-  "Ingénierie de projet",
-  "Digitalisation & IoT",
-  "Maintenance industrielle",
-  "Électricité HT/BT",
-  "Cybersécurité OT",
-  "Formation & transfert",
-  "Autre",
-];
+export default async function ContactPage() {
+  const t = await getTranslations("contact");
 
-const contactInfos = [
-  {
-    icon: MapPin,
-    label: "Adresse",
-    value: "Angré, Abidjan\nCôte d'Ivoire",
-  },
-  {
-    icon: Phone,
-    label: "Téléphone",
-    value: "+225 07 00 00 00 00",
-    href: "tel:+2250700000000",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "contact@meysson-engineering.ci",
-    href: "mailto:contact@meysson-engineering.ci",
-  },
-  {
-    icon: Clock,
-    label: "Disponibilité",
-    value: "Lun – Ven : 8h – 18h\nSam : 9h – 13h",
-  },
-];
+  const contactInfos = [
+    {
+      icon: MapPin,
+      label: t("address_label"),
+      value: t("address"),
+    },
+    {
+      icon: Phone,
+      label: t("phone_label"),
+      value: "+225 07 00 00 00 00",
+      href: "tel:+2250700000000",
+    },
+    {
+      icon: Mail,
+      label: t("email_label"),
+      value: "contact@meysson-engineering.ci",
+      href: "mailto:contact@meysson-engineering.ci",
+    },
+    {
+      icon: Clock,
+      label: t("availability_label"),
+      value: t("availability"),
+    },
+  ];
 
-export default function ContactPage() {
+  const services = [
+    t("services.s1"),
+    t("services.s2"),
+    t("services.s3"),
+    t("services.s4"),
+    t("services.s5"),
+    t("services.s6"),
+    t("services.s7"),
+    t("services.s8"),
+  ];
+
   return (
     <>
       <PageHero
-        label="Contact"
-        title="Parlons de votre projet"
-        subtitle="Notre équipe d'experts vous répond sous 48h pour analyser votre besoin et vous proposer une solution adaptée."
-        breadcrumbs={[{ label: "Contact" }]}
+        label={t("hero_label")}
+        title={t("hero_title")}
+        subtitle={t("hero_subtitle")}
+        breadcrumbs={[{ label: t("hero_label") }]}
       />
 
       <section className="py-20 bg-white">
@@ -53,7 +56,7 @@ export default function ContactPage() {
             {/* Infos contact */}
             <div className="lg:col-span-1">
               <h2 className="text-xl font-bold text-gray-text mb-6">
-                Nos coordonnées
+                {t("info_title")}
               </h2>
               <div className="space-y-6 mb-8">
                 {contactInfos.map((info) => (
@@ -86,8 +89,8 @@ export default function ContactPage() {
               <div className="h-52 rounded-xl bg-gradient-to-br from-primary/15 to-accent/10 border border-border flex items-center justify-center">
                 <div className="text-center">
                   <MapPin size={28} className="text-primary mx-auto mb-2" />
-                  <p className="text-gray-500 text-sm">Angré, Abidjan</p>
-                  <p className="text-gray-400 text-xs">Côte d'Ivoire</p>
+                  <p className="text-gray-500 text-sm">{t("map_city")}</p>
+                  <p className="text-gray-400 text-xs">{t("map_country")}</p>
                 </div>
               </div>
             </div>
@@ -95,7 +98,7 @@ export default function ContactPage() {
             {/* Formulaire */}
             <div className="lg:col-span-2">
               <h2 className="text-xl font-bold text-gray-text mb-6">
-                Envoyez-nous un message
+                {t("form_title")}
               </h2>
               <form className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -104,12 +107,12 @@ export default function ContactPage() {
                       htmlFor="nom"
                       className="block text-sm font-medium text-gray-text mb-1.5"
                     >
-                      Nom complet <span className="text-red-500">*</span>
+                      {t("field_name")} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       id="nom"
-                      placeholder="Jean Dupont"
+                      placeholder={t("field_name_placeholder")}
                       className="w-full px-4 py-2.5 rounded-lg border border-border bg-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-gray-text placeholder-gray-400 transition-colors"
                       required
                     />
@@ -119,12 +122,12 @@ export default function ContactPage() {
                       htmlFor="societe"
                       className="block text-sm font-medium text-gray-text mb-1.5"
                     >
-                      Société
+                      {t("field_company")}
                     </label>
                     <input
                       type="text"
                       id="societe"
-                      placeholder="Nom de votre entreprise"
+                      placeholder={t("field_company_placeholder")}
                       className="w-full px-4 py-2.5 rounded-lg border border-border bg-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-gray-text placeholder-gray-400 transition-colors"
                     />
                   </div>
@@ -136,12 +139,12 @@ export default function ContactPage() {
                       htmlFor="email"
                       className="block text-sm font-medium text-gray-text mb-1.5"
                     >
-                      Email professionnel <span className="text-red-500">*</span>
+                      {t("field_email")} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
                       id="email"
-                      placeholder="jean@entreprise.ci"
+                      placeholder={t("field_email_placeholder")}
                       className="w-full px-4 py-2.5 rounded-lg border border-border bg-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-gray-text placeholder-gray-400 transition-colors"
                       required
                     />
@@ -151,12 +154,12 @@ export default function ContactPage() {
                       htmlFor="telephone"
                       className="block text-sm font-medium text-gray-text mb-1.5"
                     >
-                      Téléphone
+                      {t("field_phone")}
                     </label>
                     <input
                       type="tel"
                       id="telephone"
-                      placeholder="+225 07 00 00 00 00"
+                      placeholder={t("field_phone_placeholder")}
                       className="w-full px-4 py-2.5 rounded-lg border border-border bg-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-gray-text placeholder-gray-400 transition-colors"
                     />
                   </div>
@@ -167,14 +170,14 @@ export default function ContactPage() {
                     htmlFor="service"
                     className="block text-sm font-medium text-gray-text mb-1.5"
                   >
-                    Service concerné <span className="text-red-500">*</span>
+                    {t("field_service")} <span className="text-red-500">*</span>
                   </label>
                   <select
                     id="service"
                     className="w-full px-4 py-2.5 rounded-lg border border-border bg-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-gray-text transition-colors"
                     required
                   >
-                    <option value="">Sélectionnez un service</option>
+                    <option value="">{t("field_service_placeholder")}</option>
                     {services.map((s) => (
                       <option key={s} value={s}>
                         {s}
@@ -188,12 +191,12 @@ export default function ContactPage() {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-text mb-1.5"
                   >
-                    Décrivez votre besoin <span className="text-red-500">*</span>
+                    {t("field_message")} <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
                     rows={5}
-                    placeholder="Décrivez votre projet, vos contraintes et vos objectifs..."
+                    placeholder={t("field_message_placeholder")}
                     className="w-full px-4 py-2.5 rounded-lg border border-border bg-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-gray-text placeholder-gray-400 resize-none transition-colors"
                     required
                   />
@@ -207,9 +210,7 @@ export default function ContactPage() {
                     required
                   />
                   <label htmlFor="rgpd" className="text-xs text-gray-500">
-                    J'accepte que mes données soient utilisées pour traiter ma demande
-                    conformément à la politique de confidentialité de Meysson
-                    Engineering. Aucune donnée n'est transmise à des tiers.
+                    {t("rgpd")}
                   </label>
                 </div>
 
@@ -217,12 +218,10 @@ export default function ContactPage() {
                   type="submit"
                   className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors text-sm"
                 >
-                  Envoyer ma demande
+                  {t("submit")}
                 </button>
 
-                <p className="text-xs text-gray-400">
-                  * Champs obligatoires. Réponse garantie sous 48h ouvrées.
-                </p>
+                <p className="text-xs text-gray-400">{t("field_required")}</p>
               </form>
             </div>
           </div>
@@ -233,12 +232,9 @@ export default function ContactPage() {
       <section className="bg-primary-dark py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-white font-semibold text-lg mb-2">
-            Urgence industrielle ?
+            {t("urgency_title")}
           </p>
-          <p className="text-white/70 text-sm mb-4">
-            Pour toute intervention urgente sur site, contactez-nous directement
-            par téléphone.
-          </p>
+          <p className="text-white/70 text-sm mb-4">{t("urgency_desc")}</p>
           <a
             href="tel:+2250700000000"
             className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors text-sm"

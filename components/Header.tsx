@@ -1,38 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { Menu, X, ChevronDown } from "lucide-react";
-
-const navItems = [
-  { label: "Accueil", href: "/" },
-  { label: "À propos", href: "/about" },
-  {
-    label: "Expertises",
-    href: "/expertises",
-    children: [
-      { label: "Ingénierie & Énergie", href: "/expertises/ingenierie-energie" },
-      {
-        label: "Raffinerie & Maintenance",
-        href: "/expertises/raffinerie-maintenance",
-      },
-      {
-        label: "Télécoms & Infrastructures",
-        href: "/expertises/telecoms-infrastructures",
-      },
-    ],
-  },
-  { label: "Services", href: "/services" },
-  { label: "Références", href: "/references" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expertisesOpen, setExpertisesOpen] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations("nav");
+
+  const navItems = [
+    { label: t("home"), href: "/" as const },
+    { label: t("about"), href: "/about" as const },
+    {
+      label: t("expertises"),
+      href: "/expertises" as const,
+      children: [
+        { label: t("expertise_energie"), href: "/expertises/ingenierie-energie" as const },
+        { label: t("expertise_raffinerie"), href: "/expertises/raffinerie-maintenance" as const },
+        { label: t("expertise_telecoms"), href: "/expertises/telecoms-infrastructures" as const },
+      ],
+    },
+    { label: t("services"), href: "/services" as const },
+    { label: t("references"), href: "/references" as const },
+    { label: t("blog"), href: "/blog" as const },
+    { label: t("contact"), href: "/contact" as const },
+  ];
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -67,6 +63,7 @@ export default function Header() {
                   onMouseLeave={() => setExpertisesOpen(false)}
                 >
                   <button
+                    type="button"
                     className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                       isActive(item.href)
                         ? "text-primary bg-primary/5"
@@ -74,7 +71,10 @@ export default function Header() {
                     }`}
                   >
                     {item.label}
-                    <ChevronDown size={14} className={`transition-transform ${expertisesOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform ${expertisesOpen ? "rotate-180" : ""}`}
+                    />
                   </button>
                   {expertisesOpen && (
                     <div className="absolute top-full left-0 w-56 bg-white shadow-lg border border-border rounded-lg py-1 mt-1">
@@ -106,13 +106,14 @@ export default function Header() {
             )}
           </nav>
 
-          {/* CTA desktop */}
-          <div className="hidden lg:block">
+          {/* CTA + LanguageSwitcher desktop */}
+          <div className="hidden lg:flex items-center gap-3">
+            <LanguageSwitcher />
             <Link
               href="/contact"
               className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
-              Demander un devis
+              {t("cta")}
             </Link>
           </div>
 
@@ -160,13 +161,14 @@ export default function Header() {
                 )}
               </div>
             ))}
-            <div className="pt-2">
+            <div className="flex items-center gap-3 pt-2">
+              <LanguageSwitcher />
               <Link
                 href="/contact"
-                className="block w-full text-center bg-primary hover:bg-primary-dark text-white px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors"
+                className="flex-1 text-center bg-primary hover:bg-primary-dark text-white px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
-                Demander un devis
+                {t("cta")}
               </Link>
             </div>
           </nav>
