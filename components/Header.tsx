@@ -26,7 +26,7 @@ export default function Header() {
     },
     { label: t("services"), href: "/services" as const },
     { label: t("references"), href: "/references" as const },
-    { label: t("blog"), href: "/blog" as const },
+    // { label: t("blog"), href: "/blog" as const },
     { label: t("contact"), href: "/contact" as const },
   ];
 

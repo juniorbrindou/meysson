@@ -18,6 +18,33 @@ Ce dépôt contient le code source du site vitrine de **Meysson Engineering**, p
 - **Icônes** : [Lucide React](https://lucide.dev/)
 - **Qualité de code** : ESLint
 
+## ⚡ Philosophie de Performance
+
+> **La performance est une priorité absolue sur ce projet.**
+
+Ce site est un vitrine professionnelle : chaque milliseconde compte pour l'expérience utilisateur et le référencement (Core Web Vitals).
+
+### Règles à respecter
+
+- **Zéro dépendance inutile** : avant d'installer un nouveau package, demandez-vous si la fonctionnalité peut être réalisée nativement
+- **Pas de librairies d'animation tierces** : les transitions sont gérées par CSS `transition` / `@keyframes`.
+- **Pas de librairie de formulaire lourde** : sauf besoin démontré et validé.
+- **Pas de gestionnaire d'état global** : un `useState` / `useContext` local suffit pour l'instant.
+- **Images et vidéos optimisées** : utiliser `next/image` pour toutes les images ; limiter les sources vidéo au format MP4 720p.
+- **Server Components par défaut** : n'ajouter `"use client"` que lorsque l'interactivité est strictement nécessaire.
+- Chaque ajout de dépendance doit être **justifié et validé** par l'équipe avant merge.
+
+### Objectifs Lighthouse (production)
+
+| Métrique | Cible |
+|---|---|
+| Performance | ≥ 90 |
+| Accessibilité | ≥ 90 |
+| Bonnes pratiques | ≥ 95 |
+| SEO | ≥ 95 |
+
+---
+
 ## 📁 Structure du projet
 
 ```text

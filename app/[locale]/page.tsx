@@ -7,6 +7,7 @@ import {
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
 import DomainCard from "@/components/DomainCard";
+import HeroVideoSlider from "@/components/HeroVideoSlider";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -65,13 +66,7 @@ export default function Home() {
     <>
       {/* HERO VIDÉO */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gray-text">
-        <video autoPlay muted loop playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E"
-        >
-          <source src="https://assets.mixkit.co/videos/47755/47755-720.mp4" type="video/mp4" />
-          <source src="https://assets.mixkit.co/videos/17675/17675-720.mp4" type="video/mp4" />
-        </video>
+        <HeroVideoSlider />
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" />
         <div className="absolute inset-0 bg-primary/20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full">
@@ -98,7 +93,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-10">
           <div className="w-0.5 h-8 bg-white/30 rounded-full" />
           <div className="w-1.5 h-1.5 rounded-full bg-white/50" />
         </div>
