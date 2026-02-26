@@ -53,7 +53,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-[0_1px_8px_0_rgba(0,0,0,0.06)]">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-[0_2px_16px_0_rgba(0,0,0,0.10)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[70px]">
 
@@ -144,15 +144,9 @@ export default function Header() {
             )}
           </nav>
 
-          {/* ── Right side: Language + CTA ── */}
+          {/* ── Right side: Language ── */}
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher />
-            <Link
-              href="/contact"
-              className="bg-primary hover:bg-primary-dark text-white text-[13px] font-bold px-5 py-2.5 transition-colors duration-150 shadow-sm"
-            >
-              {t("cta")}
-            </Link>
           </div>
 
           {/* ── Burger mobile ── */}
@@ -234,13 +228,6 @@ export default function Header() {
 
           <div className="flex items-center gap-3 pt-3 pb-2 border-t border-gray-100 mt-2">
             <LanguageSwitcher />
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="flex-1 text-center bg-primary hover:bg-primary-dark text-white px-4 py-2.5 text-sm font-bold transition-colors"
-            >
-              {t("cta")}
-            </Link>
           </div>
         </nav>
       </div>

@@ -29,10 +29,11 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
 						entry.target.setAttribute("data-visible", "true");
+						observer.unobserve(entry.target);
 					}
 				});
 			},
-			{ threshold: 0.2, rootMargin: "0px 0px -80px 0px" }
+			{ threshold: 0.08, rootMargin: "-60px 0px 0px 0px" }
 		);
 
 		const rows = container.querySelectorAll(".expertise-row");

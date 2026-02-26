@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
-  Zap, Settings, Wifi, Search, Wrench, Shield, BarChart2,
+  Zap, Settings, Search, Wrench, Shield, BarChart2,
   FlaskConical, ArrowRight, CheckCircle,
 } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
