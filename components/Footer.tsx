@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { MapPin, Phone, Mail, Linkedin, Facebook } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -27,14 +28,25 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Logo + description */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-sm">ME</span>
-              </div>
-              <div>
-                <span className="font-bold text-white text-base leading-none block">Meysson</span>
-                <span className="text-accent text-xs font-medium tracking-wide">Engineering</span>
-              </div>
+            {/* Mascot */}
+            <div className="mb-1">
+              <Image
+                src="/logo-mascot.png"
+                alt=""
+                width={80}
+                height={90}
+                className="w-16 h-auto object-contain"
+              />
+            </div>
+            {/* Logo text — inverted to appear white on dark bg */}
+            <div className="mb-4">
+              <Image
+                src="/logo-text.png"
+                alt="Meysson Engineering"
+                width={160}
+                height={32}
+                className="h-8 w-auto object-contain brightness-0 invert"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
               {t("description")}

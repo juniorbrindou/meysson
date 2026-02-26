@@ -5,6 +5,7 @@ import { usePathname, Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Menu, X, ChevronDown } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Image from "next/image";
 
 type NavChild = { label: string; href: string };
 type NavItem = {
@@ -57,14 +58,15 @@ export default function Header() {
         <div className="flex items-center justify-between h-[70px]">
 
           {/* ── Logo ── */}
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center shadow-sm">
-              <span className="text-white font-extrabold text-sm tracking-tight">ME</span>
-            </div>
-            <div className="hidden sm:flex flex-col leading-none">
-              <span className="font-bold text-gray-800 text-[15px] tracking-tight">Meysson</span>
-              <span className="text-primary text-[11px] font-semibold tracking-widest uppercase">Engineering</span>
-            </div>
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/logo-text.png"
+              alt="Meysson Engineering"
+              width={180}
+              height={36}
+              className="h-9 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* ── Desktop nav ── */}
