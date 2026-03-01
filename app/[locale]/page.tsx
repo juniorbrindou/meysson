@@ -10,15 +10,16 @@ import HeroVideoSlider from "@/components/HeroVideoSlider";
 import SectionExplorer from "@/components/SectionExplorer";
 import BenefitsList from "@/components/BenefitsList";
 import CTASection from "@/components/CTASection";
+import companyConfig from "@/config/company.json";
 
 export default function Home() {
   const t = useTranslations("home");
   const tCommon = useTranslations("common");
 
   const stats = [
-    { value: "100+", label: t("stats.experience") },
-    { value: "3", label: t("stats.domains") },
-    { value: "50+", label: t("stats.projects") },
+    { value: companyConfig.stats.yearsExperience, label: t("stats.experience") },
+    { value: companyConfig.stats.domains, label: t("stats.domains") },
+    { value: companyConfig.stats.projects, label: t("stats.projects") },
   ];
 
   const expertises = [

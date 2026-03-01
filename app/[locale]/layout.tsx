@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { getMessages, getTranslations } from "next-intl/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import companyConfig from "@/config/company.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    keywords: "industrial engineering, maintenance, energy, telecoms, Abidjan, Côte d'Ivoire",
+    keywords: companyConfig.meta.keywords,
   };
 }
 

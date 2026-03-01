@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { MapPin, Phone, Mail, Linkedin, Facebook } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import companyConfig from "@/config/company.json";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -52,12 +53,16 @@ export default function Footer() {
               {t("description")}
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors" aria-label="LinkedIn">
-                <Linkedin size={16} />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors" aria-label="Facebook">
-                <Facebook size={16} />
-              </a>
+              {companyConfig.social.linkedin && (
+                <a href={companyConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors" aria-label="LinkedIn">
+                  <Linkedin size={16} />
+                </a>
+              )}
+              {companyConfig.social.facebook && (
+                <a href={companyConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors" aria-label="Facebook">
+                  <Facebook size={16} />
+                </a>
+              )}
             </div>
           </div>
 
@@ -105,14 +110,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-accent shrink-0" />
-                <a href="tel:+2250700000000" className="text-gray-400 hover:text-accent text-sm transition-colors">
-                  +225 07 00 00 00 00
+                <a href={companyConfig.contact.phoneHref} className="text-gray-400 hover:text-accent text-sm transition-colors">
+                  {companyConfig.contact.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-accent shrink-0" />
-                <a href="mailto:contact@meysson-engineering.ci" className="text-gray-400 hover:text-accent text-sm transition-colors">
-                  contact@meysson-engineering.ci
+                <a href={companyConfig.contact.emailHref} className="text-gray-400 hover:text-accent text-sm transition-colors">
+                  {companyConfig.contact.email}
                 </a>
               </li>
             </ul>

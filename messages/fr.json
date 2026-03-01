@@ -444,8 +444,8 @@
     "email_label": "Email",
     "availability_label": "Disponibilité",
     "availability": "Lun – Ven : 8h – 18h\nSam : 9h – 13h",
-    "map_city": "Angré, Abidjan",
-    "map_country": "Côte d'Ivoire",
+    "map_open": "Ouvrir dans Google Maps",
+    "map_address": "Meysson Engineering — Angré, Abidjan, Côte d'Ivoire",
     "field_name": "Nom complet",
     "field_name_placeholder": "Jean Dupont",
     "field_company": "Société",
@@ -461,17 +461,20 @@
     "field_required": "Champs obligatoires. Réponse garantie sous 48h ouvrées.",
     "rgpd": "J'accepte que mes données soient utilisées pour traiter ma demande conformément à la politique de confidentialité de Meysson Engineering. Aucune donnée n'est transmise à des tiers.",
     "submit": "Envoyer ma demande",
+    "submit_pending": "Envoi en cours…",
+    "success_title": "Message envoyé !",
+    "success_desc": "Merci pour votre message. Notre équipe vous répondra sous 48h ouvrées.",
     "urgency_title": "Urgence industrielle ?",
     "urgency_desc": "Pour toute intervention urgente sur site, contactez-nous directement par téléphone.",
     "services": {
-      "s1": "Audit énergétique",
-      "s2": "Ingénierie de projet",
-      "s3": "Digitalisation & IoT",
-      "s4": "Maintenance industrielle",
-      "s5": "Électricité HT/BT",
-      "s6": "Cybersécurité OT",
-      "s7": "Formation & transfert",
-      "s8": "Autre"
+      "audit": "Audit énergétique",
+      "engineering": "Ingénierie de projet",
+      "iot": "Digitalisation & IoT",
+      "maintenance": "Maintenance industrielle",
+      "electrical": "Électricité HT/BT",
+      "cyber": "Cybersécurité OT",
+      "training": "Formation & transfert",
+      "other": "Autre"
     }
   }
 }

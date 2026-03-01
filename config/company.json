@@ -1,0 +1,39 @@
+{
+  "company": {
+    "name": "Meysson Engineering",
+    "legalName": "Meysson Engineering SARL"
+  },
+  "contact": {
+    "phone": "+225 07 00 00 00 00",
+    "phoneHref": "tel:+2250700000000",
+    "email": "contact@meysson-engineering.ci",
+    "emailHref": "mailto:contact@meysson-engineering.com"
+  },
+  "address": {
+    "street": "Angré",
+    "city": "Abidjan",
+    "country": "Côte d'Ivoire",
+    "full": "Angré, Abidjan, Côte d'Ivoire"
+  },
+  "location": {
+    "lat": 5.3742,
+    "lng": -3.9756
+  },
+  "social": {
+    "linkedin": "",
+    "facebook": "",
+    "twitter": ""
+  },
+  "stats": {
+    "yearsExperience": "100+",
+    "domains": "3",
+    "projects": "50+"
+  },
+  "assets": {
+    "logoText": "/logo-text.png",
+    "logoMascot": "/logo-mascot.png"
+  },
+  "meta": {
+    "keywords": "ingénierie industrielle, maintenance, énergie, télécoms, Abidjan, Côte d'Ivoire, Meysson Engineering"
+  }
+}
