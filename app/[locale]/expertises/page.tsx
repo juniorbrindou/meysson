@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { Zap, Wrench, Wifi, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import SectionTitle from "@/components/SectionTitle";
+import CTASection from "@/components/CTASection";
 
 export default function ExpertisesPage() {
   const t = useTranslations("expertises");
@@ -74,14 +75,12 @@ export default function ExpertisesPage() {
         </div>
       </section>
 
-      <section className="bg-muted py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <SectionTitle title={t("hub_cta_title")} subtitle={t("hub_cta_subtitle")} center />
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-            {tCommon("discuss_project")} <ArrowRight size={18} />
-          </Link>
-        </div>
-      </section>
+      <CTASection
+        title={t("hub_cta_title")}
+        subtitle={t("hub_cta_subtitle")}
+        buttonLabel={tCommon("discuss_project")}
+        muted
+      />
     </>
   );
 }

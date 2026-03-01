@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { LucideIcon, ArrowRight } from "lucide-react";
 
 interface DomainCardProps {
@@ -7,6 +7,7 @@ interface DomainCardProps {
   description: string;
   href: string;
   tags?: string[];
+  linkLabel: string;
 }
 
 export default function DomainCard({
@@ -15,6 +16,7 @@ export default function DomainCard({
   description,
   href,
   tags = [],
+  linkLabel,
 }: DomainCardProps) {
   return (
     <div className="group relative bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -42,10 +44,10 @@ export default function DomainCard({
         )}
 
         <Link
-          href={href}
+          href={href as "/"}
           className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-200"
         >
-          En savoir plus
+          {linkLabel}
           <ArrowRight size={16} />
         </Link>
       </div>

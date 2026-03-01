@@ -2,12 +2,14 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   Zap, Settings, Search, Wrench, Shield, BarChart2,
-  FlaskConical, ArrowRight, CheckCircle,
+  FlaskConical, ArrowRight,
 } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
 import HeroVideoSlider from "@/components/HeroVideoSlider";
 import SectionExplorer from "@/components/SectionExplorer";
+import BenefitsList from "@/components/BenefitsList";
+import CTASection from "@/components/CTASection";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -26,6 +28,7 @@ export default function Home() {
       href: "/expertises/ingenierie-energie",
       image: "/banner-energie.jpg",
       tags: [t("domain_energie_tag1"), t("domain_energie_tag2"), t("domain_energie_tag3")],
+      ctaLabel: tCommon("explore"),
     },
     {
       title: t("domain_raffinerie_title"),
@@ -33,6 +36,7 @@ export default function Home() {
       href: "/expertises/raffinerie-maintenance",
       image: "/banner-raffinerie.jpg",
       tags: [t("domain_raffinerie_tag1"), t("domain_raffinerie_tag2"), t("domain_raffinerie_tag3")],
+      ctaLabel: tCommon("explore"),
     },
     {
       title: t("domain_telecoms_title"),
@@ -40,6 +44,7 @@ export default function Home() {
       href: "/expertises/telecoms-infrastructures",
       image: "/banner-telecoms.jpg",
       tags: [t("domain_telecoms_tag1"), t("domain_telecoms_tag2"), t("domain_telecoms_tag3")],
+      ctaLabel: tCommon("explore"),
     },
   ];
 
@@ -131,14 +136,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-xl">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{t("trust_title")}</h2>
-              <ul className="space-y-2">
-                {trustItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/85 text-sm">
-                    <CheckCircle size={16} className="text-accent mt-0.5 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <BenefitsList items={trustItems} light />
             </div>
             <div className="shrink-0">
               <Link href="/about" className="inline-flex items-center gap-2 bg-white text-primary hover:bg-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200">
@@ -150,16 +148,12 @@ export default function Home() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Settings size={40} className="text-primary mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-text mb-4">{t("cta_title")}</h2>
-          <p className="text-gray-500 mb-8">{t("cta_subtitle")}</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-3.5 rounded-lg font-semibold transition-colors text-base">
-            {t("cta_button")} <ArrowRight size={18} />
-          </Link>
-        </div>
-      </section>
+      <CTASection
+        title={t("cta_title")}
+        subtitle={t("cta_subtitle")}
+        buttonLabel={t("cta_button")}
+        icon={Settings}
+      />
     </>
   );
 }

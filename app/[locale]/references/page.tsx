@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { Building2, TrendingUp, Zap, Wrench, Wifi, CheckCircle, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import SectionTitle from "@/components/SectionTitle";
+import CTASection from "@/components/CTASection";
 
 export default function ReferencesPage() {
   const t = useTranslations("references");
@@ -122,15 +123,12 @@ export default function ReferencesPage() {
         </div>
       </section>
 
-      <section className="py-14 bg-primary text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-white mb-4">{t("cta_title")}</h2>
-          <p className="text-white/75 mb-6">{t("cta_subtitle")}</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-primary hover:bg-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200">
-            {tCommon("start_project")} <ArrowRight size={18} />
-          </Link>
-        </div>
-      </section>
+      <CTASection
+        title={t("cta_title")}
+        subtitle={t("cta_subtitle")}
+        buttonLabel={tCommon("start_project")}
+        dark
+      />
     </>
   );
 }

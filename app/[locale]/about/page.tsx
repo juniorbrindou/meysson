@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { Target, Eye, Award, Users, CheckCircle, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import SectionTitle from "@/components/SectionTitle";
+import BenefitsList from "@/components/BenefitsList";
 
 export default function AboutPage() {
   const t = useTranslations("about");
@@ -110,14 +111,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <SectionTitle label={t("engagements_label")} title={t("engagements_title")} light />
-              <ul className="space-y-3">
-                {engagements.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/85">
-                    <CheckCircle size={18} className="text-accent mt-0.5 shrink-0" />
-                    <span className="text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <BenefitsList items={engagements} light />
             </div>
             <div className="text-center lg:text-left">
               <p className="text-white/75 text-lg mb-6">{t("engagements_cta")}</p>

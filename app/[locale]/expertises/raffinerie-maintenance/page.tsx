@@ -1,8 +1,10 @@
 import { useTranslations } from "next-intl";
+import { Wrench, Shield, Clock, TrendingUp, ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { Wrench, Shield, Clock, TrendingUp, CheckCircle, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import SectionTitle from "@/components/SectionTitle";
+import BenefitsList from "@/components/BenefitsList";
+import CTASection from "@/components/CTASection";
 
 export default function RaffineriePage() {
   const t = useTranslations("expertises");
@@ -68,14 +70,7 @@ export default function RaffineriePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <SectionTitle label={tCommon("client_benefits")} title={t("raffinerie_benefits_title")} light />
-              <ul className="space-y-3">
-                {benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-white/85">
-                    <CheckCircle size={18} className="text-accent mt-0.5 shrink-0" />
-                    <span className="text-sm">{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <BenefitsList items={benefits} light />
             </div>
             <div className="bg-white/10 rounded-2xl p-8 text-white">
               <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">{tCommon("use_case")}</p>
@@ -89,15 +84,11 @@ export default function RaffineriePage() {
         </div>
       </section>
 
-      <section className="py-14 bg-white text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-text mb-4">{t("raffinerie_cta_title")}</h2>
-          <p className="text-gray-500 mb-6">{t("raffinerie_cta_subtitle")}</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-            {tCommon("free_diagnosis")} <ArrowRight size={18} />
-          </Link>
-        </div>
-      </section>
+      <CTASection
+        title={t("raffinerie_cta_title")}
+        subtitle={t("raffinerie_cta_subtitle")}
+        buttonLabel={tCommon("free_diagnosis")}
+      />
     </>
   );
 }

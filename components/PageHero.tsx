@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
 interface Breadcrumb {
@@ -14,13 +15,15 @@ interface PageHeroProps {
   image?: string; // path from /public, e.g. "/banner-about.jpg"
 }
 
-export default function PageHero({
+export default async function PageHero({
   label,
   title,
   subtitle,
   breadcrumbs,
   image,
 }: PageHeroProps) {
+  const t = await getTranslations("nav");
+
   return (
     <section className="relative py-20 md:py-28 overflow-hidden bg-gray-800">
       {/* Background image */}
@@ -57,13 +60,13 @@ export default function PageHero({
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav className="flex items-center gap-2 text-sm text-white/60 mb-6">
             <Link href="/" className="hover:text-white transition-colors">
-              Accueil
+              {t("home")}
             </Link>
             {breadcrumbs.map((crumb, i) => (
               <span key={i} className="flex items-center gap-2">
                 <span>/</span>
                 {crumb.href ? (
-                  <Link href={crumb.href} className="hover:text-white transition-colors">
+                  <Link href={crumb.href as "/"} className="hover:text-white transition-colors">
                     {crumb.label}
                   </Link>
                 ) : (

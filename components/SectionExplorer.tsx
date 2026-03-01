@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 interface ExpertiseItem {
 	title: string;
@@ -11,6 +11,7 @@ interface ExpertiseItem {
 	href: string;
 	image: string;
 	tags: string[];
+	ctaLabel: string;
 }
 
 interface SectionExplorerProps {
@@ -18,29 +19,10 @@ interface SectionExplorerProps {
 }
 
 export default function SectionExplorer({ items }: SectionExplorerProps) {
-	const containerRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const container = containerRef.current;
-		if (!container) return;
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.setAttribute("data-visible", "true");
-						observer.unobserve(entry.target);
-					}
-				});
-			},
-			{ threshold: 0.08, rootMargin: "-60px 0px 0px 0px" }
-		);
-
-		const rows = container.querySelectorAll(".expertise-row");
-		rows.forEach((row) => observer.observe(row));
-
-		return () => observer.disconnect();
-	}, []);
+	const containerRef = useScrollReveal(".expertise-row", {
+		threshold: 0.08,
+		rootMargin: "-60px 0px 0px 0px",
+	});
 
 	return (
 		<div ref={containerRef}>
@@ -58,6 +40,7 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 								src={item.image}
 								alt={item.title}
 								fill
+								priority={index === 0}
 								className="object-cover transition-transform duration-700 group-hover/row:scale-105"
 								sizes="(max-width: 768px) 100vw, 50vw"
 							/>
@@ -104,10 +87,10 @@ export default function SectionExplorer({ items }: SectionExplorerProps) {
 
 								{/* CTA */}
 								<Link
-									href={item.href as "/expertises/ingenierie-energie" | "/expertises/raffinerie-maintenance" | "/expertises/telecoms-infrastructures"}
+									href={item.href as "/"}
 									className="expertise-slide-item group/btn inline-flex items-center gap-3 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md"
 								>
-									Explorer
+									{item.ctaLabel}
 									<ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
 								</Link>
 							</div>

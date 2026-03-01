@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Search, FlaskConical, BarChart2, Wrench, Zap, Shield, Settings, GraduationCap, CheckCircle, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import SectionTitle from "@/components/SectionTitle";
+import CTASection from "@/components/CTASection";
 
 export default function ServicesPage() {
   const t = useTranslations("services");
@@ -59,14 +59,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-primary">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <SectionTitle title={t("cta_title")} subtitle={t("cta_subtitle")} center light />
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-primary hover:bg-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200">
-            {tCommon("request_quote")} <ArrowRight size={18} />
-          </Link>
-        </div>
-      </section>
+      <CTASection
+        title={t("cta_title")}
+        subtitle={t("cta_subtitle")}
+        buttonLabel={tCommon("request_quote")}
+        dark
+      />
     </>
   );
 }

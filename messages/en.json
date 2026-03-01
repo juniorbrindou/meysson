@@ -40,7 +40,8 @@
     "results": "Results",
     "solution": "Solution",
     "context": "Context",
-    "read_time": "{minutes} min read"
+    "read_time": "{minutes} min read",
+    "explore": "Explore"
   },
   "footer": {
     "description": "Strategic partner in industrial engineering, maintenance, energy and telecoms in Côte d'Ivoire.",
